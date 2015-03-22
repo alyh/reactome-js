@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>pathway</title>
+    <link rel="stylesheet" href="millennial.css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+  <body class="mainbody">
+    <p>Select Pathway:&emsp;</p>
+    <select id="pathway"></select>
+    <form id="proof" action="http://www.reactome.org/PathwayBrowser/#DIAGRAM=2173782" target="_blank">
+        <input type="submit" value="See it in Reactome!">
+    </form>
+    <p>&emsp;REACT ID: </p>
+    <input id="reactinput" type="text" name="reactid"/>
+  <div id="svgcontainer"></div>
+  </body>
+</html>

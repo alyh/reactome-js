@@ -1,0 +1,116 @@
+.mainbody{
+  background:#ecf0f1;
+  overflow: auto;
+}
+p, form{
+  display: inline-block;
+}
+
+#svgcontainer{
+  background: white;
+  border:  1px solid #34495e;
+  height: 90%;
+  width: 99%;
+  position: absolute;
+}
+
+a{
+  color: #34495e;
+  text-decoration: none;
+}
+
+.mainbody, a, p{
+  font-size:13px;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/** PATHWAY CUSTOMIZATION **/
+
+.RenderableRect, .RenderableProtein, .RenderableChemical, .RenderableEntity, .ProcessNode{
+  fill:#ffdc7d;
+  stroke:#e9931c;
+}
+
+.RenderableComplex, .RenderableEntitySet{
+  fill:#D6F1FA;
+  stroke: #1693c0;
+  stroke-width:0.5px;
+}
+
+.RenderableComplex{
+  stroke-width:1px;
+  stroke: #34495e;
+}
+
+.ProcessNode{
+  stroke: #e9931c;
+  stroke-width:0.6px;
+  fill:white;
+}
+
+.RenderableGene{
+  stroke:#333;
+  fill:none;
+}
+
+.RenderableText {
+  font-size: 7px;
+  fill: #34495e;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.RenderableCompartment{
+  fill:#ecf0f1;
+  stroke:#34495e;
+  stroke-width:0.3px;
+  z-index: -1;
+  fill-opacity: 0.3;
+}
+
+.RenderableCompartmentText{
+  font-size: 9px;
+  fill: #34495e;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.RenderableStroke{
+  stroke-width:0.7px;
+}
+
+/** ESSENTIAL **/
+
+.Note{
+  fill:none;
+}
+
+.RenderableNodeText .RenderableNodeTextCell{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  color: #34495e;
+}
+
+.RenderableBorder{
+  fill:none;
+}
+
+
+#svgcontainer body{
+  width: 100%;
+  height:100%;
+  margin:0;
+}
+
+.cursor-grab{
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.cursor-zoom-in{
+  cursor: zoom-in;
+}
+
+.cursor-zoom-out{
+  cursor: zoom-out;
+}
