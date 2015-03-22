@@ -107,6 +107,22 @@ PathwayModel.prototype.parse = function (xml) {
   });
 };
 
+PathwayModel.prototype.addReactionNodes = function () {
+  var nodes = this.nodes;
+  this.reactions.forEach(function (reaction) {
+    nodes.push({
+      position: {
+        x: reaction.base[reaction.base.length > 2 ? reaction.base.length - 2 : 1].x,
+        y: reaction.base[reaction.base.length > 2 ? reaction.base.length - 2 : 1].y
+      },
+      id: reaction.id,
+      reactomeId: reaction.reactomeId,
+      type: 'ReactionNode'
+    });
+    reaction.reactionNode = nodes[nodes.length - 1];
+  });
+};
+
 PathwayModel.prototype.getNodeById = function (id) {
   this.nodes.forEach(function (node) {
     if (node.id === id) return node;
@@ -114,9 +130,11 @@ PathwayModel.prototype.getNodeById = function (id) {
 }
 
 PathwayModel.prototype.getReactionById = function (id) {
-  this.reactions.forEach(function (reaction) {
-    if (reaction.id === id) return reaction;
+  var reaction;
+  this.reactions.forEach(function (r) {
+    if (r.id === id) reaction = r;
   });
+  return reaction;
 }
 
 PathwayModel.prototype.getNodes = function () {
