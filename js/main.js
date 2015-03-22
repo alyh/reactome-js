@@ -1,6 +1,6 @@
 $.ajax({
     type: "GET",
-	url: "http://reactomews.oicr.on.ca:8080/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens",
+	url: "list.xml",
 	dataType: "xml",
 	success:function(xml){
 
@@ -63,6 +63,12 @@ function render(id){
       url: "http://reactomews.oicr.on.ca:8080/ReactomeRESTfulAPI/RESTfulWS/pathwayDiagram/"+id+"/XML",
       dataType: "xml",
       success: function(xml) {
+        var model = new PathwayModel();
+        var t0 = performance.now();
+        model.parse(xml);
+        var t1 = performance.now();
+        console.log("Took "+(t1-t0)+" ms");
+
         var collection =  $(xml).find('Nodes')[0].children;
         var scale = 0.7, height=0, width=0, minHeight=10000, minWidth=100000;
         var labels = [], nodes = [], geneArrows = [];
