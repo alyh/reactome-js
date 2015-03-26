@@ -1,6 +1,7 @@
 var PathwayModel = function () {
   this.nodes = [];
   this.reactions = [];
+  this.links = []
 }
 
 PathwayModel.prototype.parse = function (xml) {
@@ -124,9 +125,11 @@ PathwayModel.prototype.addReactionNodes = function () {
 };
 
 PathwayModel.prototype.getNodeById = function (id) {
-  this.nodes.forEach(function (node) {
-    if (node.id === id) return node;
+  var node;
+  this.nodes.forEach(function (n) {
+    if (n.id === id) node = n;
   });
+  return node;
 }
 
 PathwayModel.prototype.getReactionById = function (id) {
@@ -144,3 +147,99 @@ PathwayModel.prototype.getNodes = function () {
 PathwayModel.prototype.getReactions = function () {
   return this.reactions;
 };
+
+PathwayModel.prototype.getLinks = function () {
+  return this.links;
+};
+
+PathwayModel.prototype.addLineNodes = function () {
+  var nodes = this.nodes,
+    links = this.links,
+    model = this;
+  var addNode = function (x, y, id, reactomeId) {
+    if(!x || !y) console.err("undefined x or y");
+    nodes.push({
+      position: {
+        x: x,
+        y: y
+      },
+      id: id,
+      reactomeId: reactomeId,
+      type: 'ReactionNode'//,fixed:true
+    });
+  }
+
+  var link = function (a, b) {
+    links.push({
+      source: a,
+      target: b
+    })
+  }
+
+  this.reactions.forEach(function (reaction) {
+
+    console.log("Creating reaction of type '" + reaction.type + "': " +reaction.id);
+    var baseStart, baseEnd, baseMid;
+
+    for (var i = 0; i < reaction.base.length; i++) {
+      addNode(reaction.base[i].x, reaction.base[i].y, reaction.id, reaction.reactomeId);
+      if (i > 0) link(nodes[nodes.length - 1], nodes[nodes.length - 2]);
+
+      if (i === 0) baseStart = nodes[nodes.length - 1];
+      if (i === reaction.base.length - 1) baseEnd = nodes[nodes.length - 1];
+      if (i === reaction.base.length - 2) baseMid = nodes[nodes.length - 1];
+    }
+    console.log("Added base start/end/mid: ");
+    console.log(baseStart);
+    console.log(baseEnd);
+    console.log(baseMid);
+    reaction.nodes.forEach(function (reactionNode) {
+      console.log("Linking connected "+reactionNode.type+" node: "+reactionNode.id);
+      var originNode = model.getNodeById(reactionNode.id);
+      var reactionBase = reactionNode.base ? reactionNode.base.splice() : [];
+
+      if (reactionBase.length <= 1) {
+        console.log("Base of length of 1... linking base to node....");
+        switch (reactionNode.type) {
+        case 'Input':
+          link(originNode, baseStart);
+          break;
+        case 'Output':
+          link(originNode, baseEnd);
+          break;
+        default:
+          link(originNode, baseMid);
+        }
+      } else {
+        console.log("Base of length >1... diving deeper...");
+        console.log(reactionBase);
+        var reactionBaseStart, reactionBaseEnd;
+        //either start at 1 or end at -1 IDK
+        for (var i = 1; i < reactionBase.length; i++) {
+          addNode(reactionBase[i].x, reactionBase[i].y, reaction.id, reaction.reactomeId);
+          if (i > 1) link(nodes[nodes.length - 1], nodes[nodes.length - 2]);
+
+          if (i === 1) reactionBaseStart = nodes[nodes.length - 1];
+          if (i === reactionBase.length - 1) reactionBaseEnd = nodes[nodes.length - 1];
+        }
+        console.log("Linking sub base to node");
+        console.log(originNode);
+        console.log(reactionBaseStart);
+        link(originNode, reactionBaseStart);
+        console.log("Linking end of sub base to original base");
+        switch (reactionNode.type) {
+        case 'Input':
+          link(reactionBaseEnd, baseStart);
+          break;
+        case 'Output':
+          link(reactionBaseEnd, baseEnd);
+          break;
+        default:
+          link(reactionBaseEnd, baseMid);
+        }
+      }
+
+    });
+
+  });
+}

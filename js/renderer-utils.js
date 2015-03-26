@@ -41,15 +41,29 @@ RendererUtils.prototype.getLinks = function (model) {
   return links;
 };
 
-RendererUtils.prototype.setFixedPostiosn = function (model) {
+RendererUtils.prototype.setFixedPositions = function (model) {
   model.getNodes().forEach(function (elem) {
     if(elem.type === 'ReactionNode'){
-      elem.x = elem.position.x;
-      elem.y = elem.position.y;
+      elem.x = +elem.position.x;
+      elem.y = +elem.position.y;
+      elem.fixed = true;
     }else{
       elem.x = +elem.position.x+ +elem.size.width/2;
       elem.y =  +elem.position.y+ +elem.size.height/2;
       elem.fixed = true;
     }
+    console.log(elem);
   });
 };
+
+RendererUtils.prototype.seperateCompartments = function(nodes){
+  var compartments = [];
+  for(var i=0;i<nodes.length;i++){
+    if(nodes[i].type === 'RenderableCompartment'){
+      compartments.push(nodes[i]);
+      nodes.splice(i,1);
+      i--;
+    }
+  }
+  return compartments;
+}

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Process nextId="18013" reactomeDiagramId="765034" hideCompartmentInName="true">
+  <Properties>
+    <displayName>Diagram of Nephrin interactions</displayName>
+  </Properties>
+  <Nodes>
+
+    <org.gk.render.RenderableComplex id="9" reactomeId="451719" schemaClass="Complex" position="81 47" bounds="33 29 96 36" textPosition="33 30" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:NEPH2/NEPH3</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableProtein id="2" reactomeId="197692" schemaClass="EntityWithAccessionedSequence" position="330 43" bounds="299 32 63 22" textPosition="299 32">
+      <Properties>
+        <displayName>NPHS1-1</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableComplex id="3" reactomeId="373670" schemaClass="Complex" position="479 45" bounds="433 34 92 22" textPosition="433 35" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableComplex id="6" reactomeId="373679" schemaClass="Complex" position="721 52" bounds="673 34 96 36" textPosition="673 35" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:NEPH1</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableComplex id="9" reactomeId="451719" schemaClass="Complex" position="81 47" bounds="33 29 96 36" textPosition="33 30" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:NEPH2/NEPH3</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableCompartment id="10" reactomeId="70101" schemaClass="EntityCompartment" position="692 304" bounds="78 39 1228 530" textPosition="662 287" bgColor="250 240 240" lineColor="255 153 102" insets="88 49 1208 510">
+      <Properties>
+        <displayName>cytosol</displayName>
+      </Properties>
+      <Components>
+        <Component id="2" />
+        <Component id="7" />
+        <Component id="9" />
+        <Component id="35" />
+        <Component id="37" />
+        <Component id="38" />
+        <Component id="40" />
+        <Component id="42" />
+        <Component id="44" />
+        <Component id="1" />
+        <Component id="3" />
+        <Component id="4" />
+        <Component id="6" />
+        <Component id="13" />
+        <Component id="14" />
+        <Component id="15" />
+        <Component id="16" />
+        <Component id="17" />
+        <Component id="19" />
+        <Component id="20" />
+        <Component id="21" />
+        <Component id="22" />
+        <Component id="23" />
+        <Component id="24" />
+        <Component id="25" />
+        <Component id="26" />
+        <Component id="27" />
+        <Component id="29" />
+        <Component id="30" />
+        <Component id="31" />
+        <Component id="32" />
+        <Component id="33" />
+        <Component id="34" />
+        <Component id="36" />
+        <Component id="39" />
+        <Component id="43" />
+        <Component id="45" />
+        <Component id="46" />
+      </Components>
+    </org.gk.render.RenderableCompartment>
+    <org.gk.render.RenderableProtein id="14" reactomeId="200917" schemaClass="EntityWithAccessionedSequence" position="840 93" bounds="825 82 30 22" textPosition="825 82">
+      <Properties>
+        <displayName>FYN</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableChemical id="15" reactomeId="113592" schemaClass="SimpleEntity" position="753 104" bounds="734 89 39 30" textPosition="738 93">
+      <Properties>
+        <displayName>ATP</displayName>
+      </Properties>
+    </org.gk.render.RenderableChemical>
+    <org.gk.render.RenderableComplex id="16" reactomeId="374555" schemaClass="Complex" position="979 52" bounds="921 34 117 36" textPosition="921 35" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>NEPH1:p-Nephrin:Fyn</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableChemical id="17" reactomeId="29370" schemaClass="SimpleEntity" position="933 108" bounds="913 93 40 30" textPosition="917 97">
+      <Properties>
+        <displayName>ADP</displayName>
+      </Properties>
+    </org.gk.render.RenderableChemical>
+    <org.gk.render.RenderableEntitySet id="20" reactomeId="381949" schemaClass="DefinedSet" position="1018 114" bounds="979 103 79 22" textPosition="979 103">
+      <Properties>
+        <displayName>NCK1,NCK2</displayName>
+      </Properties>
+    </org.gk.render.RenderableEntitySet>
+    <org.gk.render.RenderableComplex id="21" reactomeId="373677" schemaClass="Complex" position="1196 54" bounds="1138 36 117 36" textPosition="1138 37" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>NEPH1:p-Nephrin:Fyn:NCK</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableProtein id="23" reactomeId="201873" schemaClass="EntityWithAccessionedSequence" position="1183 126" bounds="1156 115 55 22" textPosition="1156 115">
+      <Properties>
+        <displayName>N-WASP</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableComplex id="24" reactomeId="532605" schemaClass="Complex" position="1300 153" bounds="1242 135 117 36" textPosition="1242 136" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>NEPH1:p-Nephrin:Fyn:NCK:N-WASP</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableEntity id="26" reactomeId="451771" schemaClass="Polymer" position="1299 197" bounds="1246 186 107 22" textPosition="1246 186">
+      <Properties>
+        <displayName>Podocin oligomer</displayName>
+      </Properties>
+    </org.gk.render.RenderableEntity>
+    <org.gk.render.RenderableComplex id="27" reactomeId="373691" schemaClass="Complex" position="1298 323" bounds="1237 305 122 36" textPosition="1237 306" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Podocin:p-Nephrin:Fyn:NEPH1</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableProtein id="30" reactomeId="373620" schemaClass="EntityWithAccessionedSequence" position="1117 421" bounds="1093 410 48 22" textPosition="1093 410">
+      <Properties>
+        <displayName>CD2AP</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableComplex id="31" reactomeId="373680" schemaClass="Complex" position="1302 382" bounds="1244 364 117 36" textPosition="1244 365" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>CD2AP:p-Nephrin:Fyn:NEPH1</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableComplex id="33" reactomeId="74693" schemaClass="Complex" position="1208 422" bounds="1191 411 34 22" textPosition="1191 412" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>PI3K</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableComplex id="34" reactomeId="451720" schemaClass="Complex" position="1303 525" bounds="1243 507 121 36" textPosition="1243 508" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>PI3K:CD2AP:p-Nephrin:Fyn:NEPH1</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableProtein id="36" reactomeId="373631" schemaClass="EntityWithAccessionedSequence" position="369 182" bounds="350 171 38 22" textPosition="350 171">
+      <Properties>
+        <displayName>CASK</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableComplex id="37" reactomeId="373681" schemaClass="Complex" position="88 154" bounds="25 143 126 22" textPosition="25 144" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:CASK</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableProtein id="39" reactomeId="381681" schemaClass="EntityWithAccessionedSequence" position="294 289" bounds="268 278 52 22" textPosition="268 278">
+      <Properties>
+        <displayName>IQGAP1</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+    <org.gk.render.RenderableComplex id="40" reactomeId="451398" schemaClass="Complex" position="92 263" bounds="44 245 96 36" textPosition="44 246" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:IQGAP1</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableEntitySet id="43" reactomeId="451386" schemaClass="DefinedSet" position="378 384" bounds="318 366 120 36" textPosition="318 366">
+      <Properties>
+        <displayName>adherens junction-associated proteins</displayName>
+      </Properties>
+    </org.gk.render.RenderableEntitySet>
+    <org.gk.render.RenderableComplex id="44" reactomeId="451387" schemaClass="Complex" position="98 359" bounds="38 334 120 50" textPosition="38 335" bgColor="204 255 255" hideComponents="true">
+      <Properties>
+        <displayName>Nephrin dimer:adherins junction-associated proteins</displayName>
+      </Properties>
+    </org.gk.render.RenderableComplex>
+    <org.gk.render.RenderableEntitySet id="45" reactomeId="936056" schemaClass="DefinedSet" position="237 45" bounds="190 34 94 22" textPosition="190 34">
+      <Properties>
+        <displayName>NEPH2/NEPH3</displayName>
+      </Properties>
+    </org.gk.render.RenderableEntitySet>
+    <org.gk.render.RenderableProtein id="46" reactomeId="197826" schemaClass="EntityWithAccessionedSequence" position="571 42" bounds="539 31 64 22" textPosition="539 31">
+      <Properties>
+        <displayName>KIRREL-1</displayName>
+      </Properties>
+    </org.gk.render.RenderableProtein>
+  </Nodes>
+  <Edges>
+    <org.gk.render.RenderableReaction id="1" reactomeId="373732" schemaClass="Reaction" points="365 42, 404 42, 430 43" position="404 42" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="2" stoichiometry="2" />
+      </Inputs>
+      <Outputs>
+        <Output id="3" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin trans-homophilic interaction</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="4" reactomeId="373714" schemaClass="Reaction" points="583 66, 611 67, 670 58" position="611 67" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="3" points="528 54" />
+        <Input id="46" points="576 56" />
+      </Inputs>
+      <Outputs>
+        <Output id="6" />
+      </Outputs>
+      <Properties>
+        <displayName>Cis-Heterodimerization of nephrin and NEPH1</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="7" reactomeId="451757" schemaClass="Reaction" points="183 45, 165 45, 132 45" position="165 45" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="45" points="187 45" />
+        <Input id="3" points="470 59, 452 79, 183 79" />
+      </Inputs>
+      <Outputs>
+        <Output id="9" />
+      </Outputs>
+      <Properties>
+        <displayName>Heterodimerization of nephrin and NEPH2/NEPH3</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="13" reactomeId="373747" schemaClass="Reaction" points="803 50, 841 50, 876 50" position="841 50" lineWidth="1.0">
+      <Inputs>
+        <Input id="14" points="830 79" />
+        <Input id="6" points="772 50" />
+        <Input id="15" stoichiometry="4" points="766 86" />
+      </Inputs>
+      <Outputs>
+        <Output id="16" points="918 50" />
+        <Output id="17" stoichiometry="4" points="918 90" />
+      </Outputs>
+      <Catalysts>
+        <Catalyst id="14" points="840 79" />
+      </Catalysts>
+      <Properties>
+        <displayName>Phosphorylation of nephrin by the Src family kinase Fyn</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="19" reactomeId="373724" schemaClass="Reaction" points="1070 52, 1098 52, 1135 52" position="1098 52" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="16" points="1041 52" />
+        <Input id="20" points="1027 100" />
+      </Inputs>
+      <Outputs>
+        <Output id="21" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin binds NCK</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="22" reactomeId="532603" schemaClass="Reaction" points="1300 52, 1300 92, 1300 132" position="1300 92" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="21" points="1258 52" />
+        <Input id="23" points="1200 112" />
+      </Inputs>
+      <Outputs>
+        <Output id="24" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin mediated activation of N-WASP</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="25" reactomeId="373734" schemaClass="Reaction" points="1298 239, 1298 265, 1298 302" position="1298 265" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="26" points="1298 211" />
+        <Input id="16" points="982 73, 1001 158" />
+      </Inputs>
+      <Outputs>
+        <Output id="27" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin interacts with Podocin</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="29" reactomeId="373727" schemaClass="Reaction" points="1150 382, 1193 382, 1241 382" position="1193 382" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="16" points="980 73, 997 268" />
+        <Input id="30" points="1126 407" />
+      </Inputs>
+      <Outputs>
+        <Output id="31" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin binds CD2AP</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="32" reactomeId="451758" schemaClass="Reaction" points="1302 431, 1302 465, 1302 504" position="1302 465" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="33" points="1228 423" />
+        <Input id="31" points="1302 403" />
+      </Inputs>
+      <Outputs>
+        <Output id="34" />
+      </Outputs>
+      <Properties>
+        <displayName>p85 associates with both p-Nephrin and CD2AP</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="35" reactomeId="373722" schemaClass="Reaction" points="295 154, 198 154, 154 154" position="198 154" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="36" points="347 174" />
+        <Input id="6" points="670 63" />
+      </Inputs>
+      <Outputs>
+        <Output id="37" />
+      </Outputs>
+      <Properties>
+        <displayName>Nephrin binds CASK</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="38" reactomeId="451377" schemaClass="Reaction" points="231 262, 194 263, 143 263" position="194 263" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="39" points="268 275" />
+        <Input id="6" points="679 73" />
+      </Inputs>
+      <Outputs>
+        <Output id="40" />
+      </Outputs>
+      <Properties>
+        <displayName>Interaction of IQGAP1 with nephrin</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+    <org.gk.render.RenderableReaction id="42" reactomeId="451403" schemaClass="Reaction" points="277 357, 217 357, 161 357" position="217 357" lineWidth="1.0" reactionType="Association">
+      <Inputs>
+        <Input id="43" points="315 367" />
+        <Input id="6" points="694 73" />
+      </Inputs>
+      <Outputs>
+        <Output id="44" />
+      </Outputs>
+      <Properties>
+        <displayName>Interaction of nephrin with adherens junction-associated proteins</displayName>
+      </Properties>
+    </org.gk.render.RenderableReaction>
+  </Edges>
+  <Pathways />
+</Process>
+

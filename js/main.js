@@ -59,7 +59,7 @@ window.onkeyup = function (e) {
 function render(id) {
   $.ajax({
     type: "GET",
-    url: "http://reactomews.oicr.on.ca:8080/ReactomeRESTfulAPI/RESTfulWS/pathwayDiagram/" + id + "/XML",
+    url: "pathway.xml",
     dataType: "xml",
     success: function (xml) {
       var model = new PathwayModel();
@@ -67,7 +67,6 @@ function render(id) {
       model.parse(xml);
       var t1 = performance.now();
       console.log("Took " + (t1 - t0) + " ms");
-
       var height = 0,
         width = 0,
         minHeight = 10000,
@@ -80,27 +79,32 @@ function render(id) {
         minWidth = Math.min(node.position.x, minWidth);
       });
 
-      model.addReactionNodes();
-
+    //  model.addReactionNodes();
+      model.addLineNodes();
       var utils = new RendererUtils();
 
-      utils.setFixedPostiosn(model);
+      utils.setFixedPositions(model);
+      var compartments = utils.seperateCompartments(model.getNodes());
+      console.log(model.getNodes());
+      console.log(model.getLinks());
       var force = d3.layout.force()
         .nodes(model.getNodes())
-        .links(utils.getLinks(model))
-        .size([width, height]).gravity(0).charge(-500)
+        .links(model.getLinks())
+        .size([width, height]).gravity(0).charge(0)//.friction(0)
         //      .linkDistance(60)
         //    .gravity(0).theta(0).charge(-30)//.friction(1)
-        .on("tick", tick) //.alpha(0)
+        .on("tick", tick)//.alpha(0)
         .start();
-
+d3.layout.force()
+   .on('end', function() { console.log('ended!'); });
       var s = Math.min(($(window).height() * 0.9) / (height - minHeight), ($(window).width() / (width - minWidth)));
       var zoom = d3.behavior.zoom().scaleExtent([2 * s / 3, 6]);
 
       var svg = d3.select("#svgcontainer").append("svg")
         .attr('class', 'pathwaysvg')
         .attr("viewBox", "0 0 " + $(window).width() + " " + $(window).height() * 0.9)
-        .attr("preserveAspectRatio", "xMidYMid") //.append("g")
+        .attr("preserveAspectRatio", "xMidYMid")
+      //.attr('width',$(window).width()).attr('height',$(window).height() * 0.9).attr("pointer-events", "all") //.append("g")
         .append("g")
         .call(zoom).on("mousedown.zoom", null)
         .on("dblclick.zoom", null)
@@ -151,7 +155,7 @@ function render(id) {
       }).style({
         'fill': 'gold',
         'opacity': 0
-      });
+      });//.on("mousedown", move);
 
       d3.select('.pathwaysvg').on('dblclick', function () {
         zoom.scale(s).translate([-minWidth * s + offsetX, -minHeight * s + offsetY]);
@@ -176,6 +180,7 @@ function render(id) {
 //            return d.position.y;
 //          },
           width: function (d) {
+            console.log(d.type);
             return d.size ? d.size.width : '5';
           },
           height: function (d) {
@@ -184,9 +189,9 @@ function render(id) {
         })
         .style("fill", function (d) {
           //          console.log(d);
-          return d.type === "ReactionNode" ? 'black' : 'red'
+          return d.type === "ReactionNode" ? 'black' : 'gold'
         })
-        .call(force.drag); //.on("mousedown.zoom", null);
+        .call(force.drag);
       //svg.append("g").selectAll("circle")
       //        .data(force.nodes())
       //        .enter().append("circle")
@@ -201,9 +206,32 @@ function render(id) {
       }
 
       function linkArc(d) {
-        //        console.log(model.getReactionById(d.target.id).base);
+//        console.log(d.source.x);
+//        console.log(d.source.y);
+//        console.log(d.target.x);
+//        console.log(d.target.y);
+//        console.log(d.source);
+//        console.log(model.getReactionById(d.target.id));
+//        var base;
+//        model.getReactionById(d.target.id).nodes.forEach(function (node) {
+//          if(node.id === d.source.id) base = node.base;
+//        });
+////        console.log("source"+d.source.x+","+d.source.y);
+////        console.log(base);
+////        console.log("target: "+d.target.x+","+d.target.y);
+//        // console.log(zoom.translate());
+//        var path= "";
+//        for(var i=0;i<base.length;i++){
+//          if(i===0)
+//            path = path + "M" + (base[i].x)+","+ (base[i].y);
+//          else
+//            path = path + "L" + (base[i].x)+","+ (base[i].y);
+//        }
+//        path = path +"L"+ d.target.x + "," + d.target.y;
+////        console.log(path);
+//        return path;
         return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
-        ///  return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
+//        /  return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
       }
 
       function transform(d) {
