@@ -70,8 +70,8 @@ PathwayModel.prototype.parse = function (xml) {
 
       // How a node connects is also a curated line, add that
       for (var k = 0; k < subReactions.length; k++) {
+        var subBase = [];
         if (subReactions[k].getAttribute('points')) {
-          var subBase = [];
           subReactions[k].getAttribute('points').split(',').forEach(function (elem) {
             var point = elem.trim().split(' ');
             subBase.push({
@@ -86,6 +86,9 @@ PathwayModel.prototype.parse = function (xml) {
           base: subBase,
           id: subReactions[k].getAttribute('id')
         });
+
+        if(subReactions[k].getAttribute('id')==='141')
+          console.log(nodes[nodes.length-1]);
       }
     }
 

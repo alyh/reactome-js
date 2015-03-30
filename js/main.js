@@ -59,7 +59,7 @@ window.onkeyup = function (e) {
 function render(id) {
   $.ajax({
     type: "GET",
-    url: "pathway.xml",
+    url: "http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayDiagram/"+id+"/xml",
     dataType: "xml",
     success: function (xml) {
       var model = new PathwayModel();
@@ -91,18 +91,7 @@ function render(id) {
         .on("dblclick.zoom", null)
         .append("g");
 
-      //      d3.select('.pathwaysvg').on('mousedown', function () {
-      //        d3.select('.pathwaysvg').attr('class', 'pathwaysvg');
-      //        d3.select('.pathwaysvg').classed('cursor-grab', true);
-      //      });
-      //
-      //      d3.select('.pathwaysvg').on('mouseup', function () {
-      //        d3.select('.pathwaysvg').attr('class', 'pathwaysvg');
-      //      });
-
       zoom.on("zoom", function () {
-        if (!d3.event) return;
-
         svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
       });
 
@@ -133,6 +122,12 @@ function render(id) {
         zoom.scale(s).translate([-minWidth * s + offsetX, -minHeight * s + offsetY]);
         svg.transition().attr("transform", "translate(" + [-minWidth * s + offsetX, -minHeight * s + offsetY] + ")scale(" + s + ")");
       });
+
+      var renderer = new Renderer(svg);
+      var rendererUtils = new RendererUtils();
+
+      renderer.renderNodes(rendererUtils.unshiftCompartments(model.getNodes()));
+      renderer.renderEdges(rendererUtils.generateLines(model.getReactions()));
 
     }
   });
