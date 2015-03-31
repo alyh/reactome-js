@@ -115,7 +115,7 @@ Renderer.prototype.renderNodes = function (nodes) {
 
   svg.selectAll('.RenderableRect').data(rects).enter().append('rect').attr({
     'class': function (d) {
-      return"RenderableRect " + d.type;
+      return"RenderableRect " + d.type + " entity"+d.id;
     },
     'x': function (d) {
       return d.position.x;
@@ -187,7 +187,7 @@ Renderer.prototype.renderNodes = function (nodes) {
 
   svg.selectAll('.RenderableOct').data(octs).enter().append('polygon')
     .attr({
-      class: 'RenderableOct RenderableComplex',
+      class: function(d){return 'RenderableOct RenderableComplex entity'+d.id;},
       points: function (d) {
         return getPointsMap(d.position.x, d.position.y, d.size.width, d.size.height, 3);
       },
@@ -218,7 +218,7 @@ Renderer.prototype.renderEdges = function (edges) {
   var isStartMarker = function(type){return ['FlowLine','RenderableInteraction'].indexOf(type)>=0;}
 
   svg.selectAll('line').data(edges).enter().append('line').attr({
-    'class':'RenderableStroke',
+    'class':function(d){return 'RenderableStroke reaction'+d.id},
     'x1':function(d){return d.x1;},
     'y1':function(d){return d.y1;},
     'x2':function(d){return d.x2;},
