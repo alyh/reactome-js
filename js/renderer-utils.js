@@ -29,11 +29,10 @@ RendererUtils.prototype.generateLines = function (reactions) {
   }
 
   for (var i = 0; i < reactions.length; i++) {
-
-    generateLine(reactions[i].base, 'black',reactions[i].type);
-
+    var outputs = 0;
+    
     reactions[i].nodes.forEach(function (node) {
-      if(!node.base) return;
+      if(!node.base || node.base.length === 0) return;
       var base =  node.base.slice();
       switch (node.type) {
         case 'Input':
@@ -42,27 +41,28 @@ RendererUtils.prototype.generateLines = function (reactions) {
           break;
         case 'Output':
           base.push(reactions[i].base[(reactions[i].base.length - 1)]);
-
           base.reverse();
           generateLine(base, 'green', 'Output');
+          outputs =  outputs +1;
           break;
         case 'Activator':
-          base.push(reactions[i].base[(reactions[i].base.length - 1)]);
+          base.push(reactions[i].base[(reactions[i].base.length - 2)]);
           base.reverse();
           generateLine(base, 'blue', 'Activator');
           break;
         case 'Catalyst':
-          base.push(reactions[i].base[(reactions[i].base.length - 1)]);
+          base.push(reactions[i].base[(reactions[i].base.length - 2)]);
           base.reverse();
           generateLine(base, 'purple', 'Catalyst');
           break;
         case 'Inhibitor':
-          base.push(reactions[i].base[(reactions[i].base.length - 1)]);
+          base.push(reactions[i].base[(reactions[i].base.length - 2)]);
           generateLine(base, 'orange', 'Inhibitor');
           break;
         }
 
     });
+    generateLine(reactions[i].base,outputs==0?'hotpink':'black',outputs==0?'Output':reactions[i].type);
   }
 
   return lines;

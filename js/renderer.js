@@ -11,13 +11,13 @@ function defineDefs(svg){
       id:'Output',
       element:'path',
       attr:{
-        d:'M0,-5L10,0L0,5L0,-5',
+        d:'M0,-7L14,0L0,7L0,-7',
         stroke:strokeColor
       },
       style:{
         fill:strokeColor
       },
-      viewBox:  '0 -5 15 10',
+      viewBox:  '-10 -5 25 10',
       refX: '5'
     },
     {
@@ -223,7 +223,7 @@ Renderer.prototype.renderEdges = function (edges) {
     'y1':function(d){return d.y1;},
     'x2':function(d){return d.x2;},
     'y2':function(d){return d.y2;},
-  }).attr('stroke',strokeColor)//function(d){return d.color;})
+  }).attr('stroke',function(d){return d.color;})
     .style('marker-start',function(d){return d.isLast && isStartMarker(d.marker)?'url(#'+d.marker+')':'';})
     .style('marker-end',function(d){return d.isLast && !isStartMarker(d.marker)?'url(#'+d.marker+')':'';});
 };

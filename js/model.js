@@ -86,9 +86,6 @@ PathwayModel.prototype.parse = function (xml) {
           base: subBase,
           id: subReactions[k].getAttribute('id')
         });
-
-        if(subReactions[k].getAttribute('id')==='141')
-          console.log(nodes[nodes.length-1]);
       }
     }
 
@@ -151,6 +148,8 @@ PathwayModel.prototype.getReactions = function () {
   return this.reactions;
 };
 
+/** UNUSED EXPERIMENTAL FEATURES TO SUPPORT FORCE LAYOUT */
+
 PathwayModel.prototype.getLinks = function () {
   return this.links;
 };
@@ -168,7 +167,7 @@ PathwayModel.prototype.addLineNodes = function () {
       },
       id: id,
       reactomeId: reactomeId,
-      type: 'ReactionNode'//,fixed:true
+      type: 'ReactionNode'
     });
   }
 
