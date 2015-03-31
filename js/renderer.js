@@ -1,6 +1,8 @@
-var Renderer = function(svg) {
+var Renderer = function(svg, config) {
   this.svg = svg;
+  this.config = config;
   defineDefs(svg);
+  console.log(config);
 }
 
 var strokeColor = '#1693c0';
@@ -103,6 +105,7 @@ function defineDefs(svg){
 
 Renderer.prototype.renderNodes = function (nodes) {
   var svg = this.svg;
+  var config = this.config;
   var octs = [];
   var rects = nodes.slice();
   for (var i = 0; i < rects.length; i++) {
@@ -167,7 +170,7 @@ Renderer.prototype.renderNodes = function (nodes) {
     if (d3.select(this).attr('class').indexOf('RenderableCompartment') < 0) {
       d3.select(this).style('fill', d3.select(this).attr('fill-old'));
     }
-  });
+  }).on('click',function(d){config.onClick(d);});
 
   var getPointsMap = function(x,y,w,h,a){
     var points = [{x:+x+ +a,y:+y},
@@ -193,11 +196,11 @@ Renderer.prototype.renderNodes = function (nodes) {
       },
       stroke: 'Red',
       'stroke-width': 1
-    }).on('mouseover', function (e) {
+    }).on('mouseover', function () {
       d3.select(this).attr('fill-old', d3.select(this).style('fill')).style('fill', 'white');
-    }).on('mouseout', function (e) {
+    }).on('mouseout', function () {
       d3.select(this).style('fill', d3.select(this).attr('fill-old'));
-    });
+    }).on('click',function(d){config.onClick(d);});
 
   svg.selectAll('.RenderableText').data(nodes).enter().append('foreignObject').attr({
       'class':function(d){return d.type+"Text RenderableText";},
@@ -218,7 +221,7 @@ Renderer.prototype.renderEdges = function (edges) {
   var isStartMarker = function(type){return ['FlowLine','RenderableInteraction'].indexOf(type)>=0;}
 
   svg.selectAll('line').data(edges).enter().append('line').attr({
-    'class':function(d){return 'RenderableStroke reaction'+d.id},
+    'class':function(d){return 'RenderableStroke entity'+d.id},
     'x1':function(d){return d.x1;},
     'y1':function(d){return d.y1;},
     'x2':function(d){return d.x2;},
@@ -226,4 +229,19 @@ Renderer.prototype.renderEdges = function (edges) {
   }).attr('stroke',function(d){return d.color;})
     .style('marker-start',function(d){return d.isLast && isStartMarker(d.marker)?'url(#'+d.marker+')':'';})
     .style('marker-end',function(d){return d.isLast && !isStartMarker(d.marker)?'url(#'+d.marker+')':'';});
+};
+
+Renderer.prototype.highlightEntity = function (ids) {
+  var svg = this.svg;
+
+  ids.forEach(function (id) {
+    var obj = svg.select(".entity"+id);
+    var objType = obj[0][0] ? obj[0][0].nodeName : 'nothing';
+
+    if(objType === 'line'){
+      obj.attr("stroke-width","3px");
+    }else{
+      obj.style("fill","hotpink");
+    }
+  });
 };

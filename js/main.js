@@ -1,4 +1,11 @@
-var controller = new ReactomePathway({width:$(window).width(),height:$(window).height()*0.9,container:"#svgcontainer"});
+var controller = new ReactomePathway({
+  width: $(window).width(),
+  height: ($(window).height() * 0.9),
+  container: "#svgcontainer",
+  onClick: function (d) {
+    console.log(d);
+  }
+});
 
 $.ajax({
   type: "GET",
@@ -61,7 +68,7 @@ window.onkeyup = function (e) {
 function render(id) {
   $.ajax({
     type: "GET",
-    url: "http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayDiagram/"+id+"/xml",
+    url: "http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayDiagram/" + id + "/xml",
     dataType: "xml",
     success: function (xml) {
       controller.render(xml);

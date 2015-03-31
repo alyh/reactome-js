@@ -62,7 +62,11 @@ ReactomePathway.prototype.render = function (xml) {
   });
 
   // Render everything
-  var renderer = new Renderer(svg);
+  var renderer = new Renderer(svg, {
+    onClick: function (d) {
+      config.onClick(d);
+    }
+  });
   var rendererUtils = new RendererUtils();
 
   t0 = performance.now();
@@ -70,6 +74,7 @@ ReactomePathway.prototype.render = function (xml) {
   renderer.renderEdges(rendererUtils.generateLines(model.getReactions()));
   t1 = performance.now();
 
+  renderer.highlightEntity(["48", "50", "114"]);
 
   console.log("Rendered in " + (t1 - t0).toFixed(3) + " ms");
 };
